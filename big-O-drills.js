@@ -108,4 +108,36 @@ function generateFib(num) {
 
 // =====================================================
 
+// An Efficient Search
+function efficientSearch(array, item) {
+  let minIndex = 0;
+  let maxIndex = array.length - 1;
+  let currentIndex;
+  let currentElement;
 
+  while (minIndex <= maxIndex) {
+      currentIndex = Math.floor((minIndex + maxIndex) / 2);
+      currentElement = array[currentIndex];
+
+      if (currentElement < item) {
+          minIndex = currentIndex + 1;
+      }
+      else if (currentElement > item) {
+          maxIndex = currentIndex - 1;
+      }
+      else {
+          return currentIndex;
+      }
+  }
+  return -1;
+}
+
+// This is O(log(n)) -- It's a Logarithm time complexity because it splits the data set in half with each iteration.
+
+
+// Random Element
+function findRandomElement(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+// This is a O(1) --  Constant time complexity because regardless of the size of the array, it will only perform one operation return one number.
