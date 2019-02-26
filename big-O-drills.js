@@ -31,3 +31,29 @@ function areYouHere(arr1, arr2) {
 // amount of operations that will be done in the algo. 
 
 // =====================================================
+
+
+// Doubler
+function doubleArrayValues(array) {
+  for (let i=0; i<array.length; i++) {
+      array[i] *= 2;
+  }
+  return array;
+}
+
+// O(n) -- This is a Linear Time complexity, because the run time is directly proportional to the size of the input.
+
+//====================================================
+
+// Naive Search
+function naiveSearch(array, item) {
+  for (let i=0; i<array.length; i++) {
+      if (array[i] === item) {
+          return i;
+      }
+  }
+}
+
+
+// O(n) -- This is also a Linear Time complexity, again, because the rune time is proportional to the length of the input.
+
