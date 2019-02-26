@@ -116,23 +116,25 @@ function efficientSearch(array, item) {
   let currentElement;
 
   while (minIndex <= maxIndex) {
-      currentIndex = Math.floor((minIndex + maxIndex) / 2);
-      currentElement = array[currentIndex];
+    currentIndex = Math.floor((minIndex + maxIndex) / 2);
+    currentElement = array[currentIndex];
 
-      if (currentElement < item) {
-          minIndex = currentIndex + 1;
-      }
-      else if (currentElement > item) {
-          maxIndex = currentIndex - 1;
-      }
-      else {
-          return currentIndex;
-      }
+    if (currentElement < item) {
+      minIndex = currentIndex + 1;
+    }
+    else if (currentElement > item) {
+      maxIndex = currentIndex - 1;
+    }
+    else {
+      return currentIndex;
+    }
   }
   return -1;
 }
 
 // This is O(log(n)) -- It's a Logarithm time complexity because it splits the data set in half with each iteration.
+
+// =====================================================
 
 
 // Random Element
@@ -141,3 +143,23 @@ function findRandomElement(arr) {
 }
 
 // This is a O(1) --  Constant time complexity because regardless of the size of the array, it will only perform one operation return one number.
+
+
+// =====================================================
+
+// Is it prime?
+function isPrime(n) {
+  // if n is less than 2 or a decimal, it's not prime
+  if (n < 2 || n % 1 != 0) {
+    return false;
+  }
+  // otherwise, check if `n` is divisible by any integer
+  // between 2 and n.
+  for (let i = 2; i < n; ++i) {
+    if (n % i == 0) return false;
+  }
+  return true;
+}
+
+// This is O(n) -- This function is linear time complexity bacuase It will have the amount of 
+// operations that n is. For ex. if n is 10 it will have 10 operations ..etc.
