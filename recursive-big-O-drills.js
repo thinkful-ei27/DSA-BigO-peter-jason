@@ -118,5 +118,37 @@ function fibonacci(n) {
 }
 
 // We think this algorithm is O(n ^ 2) -- This is polynomial time complexity. As `n` grows larger the number of operations
-// grows larger by it's square. We believe this is becuase `fibanacci` calls itself twice everytime it gets called.
+// grows larger by it's square. We believe this is becuase `fibonacci` calls itself twice everytime it gets called.
 // ======================================================================
+
+// Exercise 9 -- Anagram
+function anagrams(prefix, str){
+  if(str.length <= 1){
+      console.log(`The anagram is ${prefix}${str}`);
+  } else {
+      for(let i=0; i<str.length; i++){
+          let currentLetter = str.substring(i, i+1); 
+          let previousLetters = str.substring(0,i);
+          let afterLetters = str.substring(i+1);
+          anagrams(prefix+currentLetter, previousLetters+afterLetters);
+      }
+  }
+}
+
+//This algorithm is O(n!) -- Factorial time complexity because for 'n' input, the function calls itself n * (n-1) * (n-2) ... times.
+
+// ========================================================
+
+
+// Exercise 10 -- Animal Heirarchy
+function traverse(animalHierarchy, parent) {
+  let node = {};
+  animalHierarchy.filter(item => item.parent === parent)
+                 .forEach(item => node[item.id] = traverse(animalHierarchy, item.id));
+  return node;  
+}
+// This algorithm is O(n^k) -- Polynomial time complexity, because the function is called through four nested loops.
+
+// ==========================================================
+
+
