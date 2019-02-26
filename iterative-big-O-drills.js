@@ -52,3 +52,38 @@ function triangle(n) {
 // the numbers and return that. Input directly proportional to time
 
 // =================================================
+
+// Exercise 5: Split a string based upon a separator
+function split(str, sep) {
+  var ret = [];
+  while (true) {
+      var idx = str.indexOf(sep);
+      if (idx == -1) break;
+      ret.push(str.slice(0, idx))
+      str = str.slice(idx + sep.length);
+  }
+  ret.push(str);
+  return ret;
+}
+
+// This algorithm is O(n) -- Linear time complexity because it works one character at a time, until there are no more characters, and its run time is directly proportional to the size of the input
+
+//==================================================================
+
+// Exercise 6 - Binary Representation
+function convertToBinaryIter(num){
+  var binary = '';
+  while(num>0){
+      let rem = Math.floor(num%2);
+      binary = rem + binary;
+      num = Math.floor(num/2);
+  }
+  return binary;
+
+
+}
+console.log(convertToBinaryIter(124)); //1111100
+
+// This algorithm is O(log(n)) -- Logarithmic time complexity because it reduces the problem size by half each time.
+
+// ===================================================================
