@@ -124,14 +124,14 @@ function fibonacci(n) {
 // Exercise 9 -- Anagram
 function anagrams(prefix, str){
   if(str.length <= 1){
-      console.log(`The anagram is ${prefix}${str}`);
+    console.log(`The anagram is ${prefix}${str}`);
   } else {
-      for(let i=0; i<str.length; i++){
-          let currentLetter = str.substring(i, i+1); 
-          let previousLetters = str.substring(0,i);
-          let afterLetters = str.substring(i+1);
-          anagrams(prefix+currentLetter, previousLetters+afterLetters);
-      }
+    for(let i=0; i<str.length; i++){
+      let currentLetter = str.substring(i, i+1); 
+      let previousLetters = str.substring(0,i);
+      let afterLetters = str.substring(i+1);
+      anagrams(prefix+currentLetter, previousLetters+afterLetters);
+    }
   }
 }
 
@@ -144,11 +144,29 @@ function anagrams(prefix, str){
 function traverse(animalHierarchy, parent) {
   let node = {};
   animalHierarchy.filter(item => item.parent === parent)
-                 .forEach(item => node[item.id] = traverse(animalHierarchy, item.id));
+    .forEach(item => node[item.id] = traverse(animalHierarchy, item.id));
   return node;  
 }
 // This algorithm is O(n^k) -- Polynomial time complexity, because the function is called through four nested loops.
 
 // ==========================================================
 
+// Exercise 11: Organization Chart
 
+function traverseA(data, depth = 0) {
+  let indent = ' '.repeat(depth * 4);
+  Object.keys(data).forEach(key => {
+    console.log(indent + key);
+    traverseA(data[key], depth + 1);
+  });
+}
+
+function traverseB(node, indent=0) {
+  for (var key in node) {
+    console.log(' '.repeat(indent), key);
+    traverseB(node[key], indent + 4);
+  }
+}
+
+
+// Kind of stumped...
