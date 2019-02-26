@@ -57,11 +57,11 @@ function triangle(n) {
 function split(str, sep) {
   var idx = str.indexOf(sep);
   if (idx == -1) 
-      return [str];
+    return [str];
   //you don't have to return an array, you can return a string as an array of 
   //character 
   //return str;
-  return [str.slice(0, idx)].concat(split(str.slice(idx + sep.length), sep))
+  return [str.slice(0, idx)].concat(split(str.slice(idx + sep.length), sep));
 //all these are valid syntax
 //return (str.slice(0,idx) + (split(str.slice(idx + sep.length), sep)))
 //return str.slice(0,idx).concat(split(str.slice(idx + sep.length), sep))
@@ -73,13 +73,50 @@ function split(str, sep) {
 // Exercise 6 - Binary Representation
 function convertToBinary(num){
   if(num>0){
-      let binary = Math.floor(num%2); //save the reminder in binary
-  //divide the number by 2 and send that to the function again
-  //carry the reminder to the next recursion call
-      return (convertToBinary(Math.floor(num/2))+ binary);
+    let binary = Math.floor(num%2); //save the reminder in binary
+    //divide the number by 2 and send that to the function again
+    //carry the reminder to the next recursion call
+    return (convertToBinary(Math.floor(num/2))+ binary);
   }else{
-      return ''; //base case - at some point the divisions will lead to 0
+    return ''; //base case - at some point the divisions will lead to 0
   }
 }
 
 // This algorithm is most likely O(log(n)) -- Logarithm time complexity because the number of operations increases minimally compared to the input, and the problem size is cut in half with each round.
+
+// ======================================================================
+
+// Exercise 7 - Factorial
+function factorial(n) {  
+  // Base Case - when n is equal to 0, we stop the recursion
+  if (n === 0) {
+    return 1;
+  }
+  // This is our Recursive Case
+  // It will run for all other conditions except when n is equal to 0
+  return n * factorial(n - 1);
+}
+
+// This algorithm is O(n) -- Linear time complexity because this function is going to run however 
+// many times `n` is 
+
+// ======================================================================
+
+// Exercise 8 - Fibonacci
+
+function fibonacci(n) {
+  // Base case
+  if (n <= 0) {
+    return 0;
+  }
+  // Base case
+  if (n <= 2) {
+    return 1;
+  }	
+  // Recursive case
+  return fibonacci(n - 1) + fibonacci(n - 2);	
+}
+
+// We think this algorithm is O(n ^ 2) -- This is polynomial time complexity. As `n` grows larger the number of operations
+// grows larger by it's square. We believe this is becuase `fibanacci` calls itself twice everytime it gets called.
+// ======================================================================
