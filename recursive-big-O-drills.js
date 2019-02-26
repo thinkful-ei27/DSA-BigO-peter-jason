@@ -52,3 +52,34 @@ function triangle(n) {
 // that `n` is. For ex) if n is 5 we will run the function 5 times -> 5 + 4 + 3 + 2 + 1 = 15
 
 // ======================================================================
+
+// Exercise 5 - String Splitter
+function split(str, sep) {
+  var idx = str.indexOf(sep);
+  if (idx == -1) 
+      return [str];
+  //you don't have to return an array, you can return a string as an array of 
+  //character 
+  //return str;
+  return [str.slice(0, idx)].concat(split(str.slice(idx + sep.length), sep))
+//all these are valid syntax
+//return (str.slice(0,idx) + (split(str.slice(idx + sep.length), sep)))
+//return str.slice(0,idx).concat(split(str.slice(idx + sep.length), sep))
+}
+
+// This algorithm is O(n) -- Linear time complexity because the function goes through the string one character at a time only once, in direct proportion to the length of the input.
+
+
+// Exercise 6 - Binary Representation
+function convertToBinary(num){
+  if(num>0){
+      let binary = Math.floor(num%2); //save the reminder in binary
+  //divide the number by 2 and send that to the function again
+  //carry the reminder to the next recursion call
+      return (convertToBinary(Math.floor(num/2))+ binary);
+  }else{
+      return ''; //base case - at some point the divisions will lead to 0
+  }
+}
+
+// This algorithm is most likely O(log(n)) -- Logarithm time complexity because the number of operations increases minimally compared to the input, and the problem size is cut in half with each round.
