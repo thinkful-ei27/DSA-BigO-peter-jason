@@ -36,7 +36,7 @@ function areYouHere(arr1, arr2) {
 // Doubler
 function doubleArrayValues(array) {
   for (let i=0; i<array.length; i++) {
-      array[i] *= 2;
+    array[i] *= 2;
   }
   return array;
 }
@@ -48,12 +48,64 @@ function doubleArrayValues(array) {
 // Naive Search
 function naiveSearch(array, item) {
   for (let i=0; i<array.length; i++) {
-      if (array[i] === item) {
-          return i;
-      }
+    if (array[i] === item) {
+      return i;
+    }
   }
 }
 
 
 // O(n) -- This is also a Linear Time complexity, again, because the rune time is proportional to the length of the input.
+
+// =====================================================
+
+// Creating pairs:
+function createPairs(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for(let j = i+1; j < arr.length; j++) { // <=== We have a nested for loop here
+      console.log(arr[i] + ', ' +  arr[j] );
+    }
+  }
+}
+
+// O(n^2) -- This function is a Quadratic Time Complexity because it contains a nested loop,
+// So for the total number of inputs it will take the (input^2) operations to run this func
+
+// =====================================================
+
+
+// Computing fibonaccis
+function generateFib(num) {
+  let result = [];
+  for (let i = 1; i <= num; i++) {
+
+    // we're adding the first item
+    // to the result list, append the
+    // number 0 to results
+    if (i === 1) {
+      result.push(0);
+    }
+    // ...and if it's the second item
+    // append 1
+    else if (i == 2) {
+      result.push(1);
+    }
+
+    // otherwise, sum the two previous result items, and append that value to results.
+    else {
+      result.push(result[i - 2] + result[i - 3]);
+    }
+  }
+  // once the for loop finishes
+  // we return `result`.
+  return result;
+}
+
+// The computing fibonaccis function is a linear time complexity because the number of operations
+// to complete this function is directly propational to the number of fibbinaccis we want which,
+// is our input to the function so basically input === operations here.
+
+
+// =====================================================
+
 
