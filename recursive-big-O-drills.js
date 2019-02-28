@@ -119,6 +119,9 @@ function fibonacci(n) {
 
 // We think this algorithm is O(n ^ 2) -- This is polynomial time complexity. As `n` grows larger the number of operations
 // grows larger by it's square. We believe this is becuase `fibonacci` calls itself twice everytime it gets called.
+// Our answer ^ -- Actual answer: O(2^n)Exponetial Time Complexity b/c as the input grows the num of operations grows exponentially
+// ALSO: The interative version of fibonacci is O(n), so it's much more efficient even though fibonacci is one of the most well
+// known recursive function examples...`
 // ======================================================================
 
 // Exercise 9 -- Anagram
