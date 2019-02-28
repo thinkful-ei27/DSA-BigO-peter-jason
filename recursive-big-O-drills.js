@@ -147,8 +147,9 @@ function traverse(animalHierarchy, parent) {
     .forEach(item => node[item.id] = traverse(animalHierarchy, item.id));
   return node;  
 }
-// This algorithm is O(n^k) -- Polynomial time complexity, because the function is called through four nested loops.
 
+// This algorithm is O(n^k) -- Polynomial time complexity, because the function is called through four nested loops.
+// Our answer ^ -- Actual answer: O(n)
 // ==========================================================
 
 // Exercise 11: Organization Chart
@@ -170,3 +171,4 @@ function traverseB(node, indent=0) {
 
 
 // Kind of stumped...
+// Answer is O(n)
